@@ -21,7 +21,7 @@ public class TaggerProcessor {
                 noun.setGender(null);
         }
         switch (parts[1]) {
-            
+
         }
         return noun;
     }

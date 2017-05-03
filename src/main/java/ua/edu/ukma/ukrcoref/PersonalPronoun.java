@@ -8,24 +8,24 @@ public class PersonalPronoun {
     public PersonalPronoun(String word) {
         this.word = word;
     }
-    
+
     public PersonalPronoun(AnalyzedToken token) {
         createFromAnalyzedToken(token);
     }
-    
+
     private void createFromAnalyzedToken(AnalyzedToken token) {
         String[] tokenParts = token.getPOSTag().split(":");
         this.setWord(token.getLemma());
 //        setGenderAndNumberFromAnalyzedTokenGender(tokenParts[2]);
 //        setCaseFromAnalyzedTokenCase(tokenParts[3]);
     }
-    
+
     public static boolean isPersonalPronoun(AnalyzedToken token) {
         String posTag = token.getPOSTag();
         if (posTag != null) {
             String[] properties = posTag.split(":");
-            return properties.length == 6 
-                    && properties[0].equals("noun") 
+            return properties.length == 6
+                    && properties[0].equals("noun")
                     && properties[3].equals("&pron")
                     && properties[4].equals("pers");
         } else {

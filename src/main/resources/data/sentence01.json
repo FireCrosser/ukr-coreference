@@ -1,0 +1,146 @@
+{
+  "S": [
+    {
+      "NP": [
+        {
+          "NN": {
+            "word": "Замок",
+            "case": "nominative",
+            "gender": "masculine"
+          }
+        },
+        {
+          "PP": [
+            {
+              "IN": "в"
+            },
+            {
+              "NP": [
+                {
+                  "NN": {
+                    "word": "Камелоті",
+                    "case": "locative",
+                    "gender": "masculine"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "VP": [
+        {
+          "V":
+                  {
+                    "word": "залишався",
+                    "tense": "past"
+                  }
+        },
+        {
+          "NP": [
+            {
+              "NN": {
+                "word": "резиденцією",
+                "case": "instrumental",
+                "gender": "feminine"
+              }
+            },
+            {
+              "NN": {
+                "word": "короля",
+                "case": "genitive",
+                "gender": "masculine"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "PP": [
+        {
+          "IN": "до"
+        },
+        {
+          "NP": [
+            {
+              "NUM":
+                      {
+                        "word": "526"
+                      }
+            },
+            {
+              "NN": {
+                "word": "року",
+                "case": "genitive",
+                "gender": "masculine"
+              }
+            },
+            {
+              "REL": {
+                "IN": {
+                  "word": "коли"
+                },
+                "S": [
+                  {
+                    "NP": [
+                      {
+                        "PRP": {
+                          "word": "він",
+                          "case": "nominative",
+                          "gender": "feminine"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "VP": [
+                      {
+                        "V":
+                                {
+                                  "word": "переніс",
+                                  "tense": "past"
+                                }
+                      },
+                      {
+                        "NP": [
+                          {
+                            "PRP": {
+                              "word": "її",
+                              "case": "accusative",
+                              "gender": "feminine"
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "PP": [
+                          {
+                            "IN": "до"
+                          },
+                          {
+                            "NP": [
+                              {
+                                "NN": {
+                                  "word": "Лондона",
+                                  "case": "genitive",
+                                  "gender": "masculine"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
