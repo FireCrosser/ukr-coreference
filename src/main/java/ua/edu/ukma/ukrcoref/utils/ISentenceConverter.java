@@ -4,5 +4,5 @@ import ua.edu.ukma.ukrcoref.parsetree.Sentence;
 
 public interface ISentenceConverter {
 
-    public Sentence convert(String input);
+    public Object convert(String input);
 }
