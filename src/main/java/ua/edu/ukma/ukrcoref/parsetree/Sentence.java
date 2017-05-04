@@ -3,33 +3,33 @@ package ua.edu.ukma.ukrcoref.parsetree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sentence implements ParseTreeNode<List<INode>> {
+public class Sentence implements ParseTreeNode<List<Node>> {
 
-    private INode parent;
-    private List<INode> children;
+    private Node parent;
+    private List<Node> children;
 
     @Override
-    public INode getParent() {
+    public Node getParent() {
         return parent;
     }
 
     @Override
-    public void setParent(INode node) {
+    public void setParent(Node node) {
         this.parent = node;
     }
 
     @Override
-    public List<INode> getData() {
+    public List<Node> getData() {
         return null;
     }
 
     @Override
-    public List<INode> getChildren() {
+    public List<Node> getChildren() {
         return children;
     }
 
     @Override
-    public void addChild(INode child) {
+    public void addChild(Node child) {
         if (children == null)
             children = new ArrayList<>();
         children.add(child);

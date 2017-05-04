@@ -7,18 +7,12 @@ import com.google.gson.JsonParser;
 import java.util.Map;
 import java.util.Set;
 import ua.edu.ukma.ukrcoref.parsetree.ParseTreeNode;
-import ua.edu.ukma.ukrcoref.parsetree.RelativeClause;
-import ua.edu.ukma.ukrcoref.parsetree.Sentence;
-import ua.edu.ukma.ukrcoref.parsetree.leaf.NounNode;
-import ua.edu.ukma.ukrcoref.parsetree.leaf.NumeralNode;
-import ua.edu.ukma.ukrcoref.parsetree.leaf.PrepositionNode;
-import ua.edu.ukma.ukrcoref.parsetree.leaf.PronounNode;
-import ua.edu.ukma.ukrcoref.parsetree.leaf.VerbNode;
-import ua.edu.ukma.ukrcoref.parsetree.phrase.NounPhrase;
-import ua.edu.ukma.ukrcoref.parsetree.phrase.PronounPhrase;
-import ua.edu.ukma.ukrcoref.parsetree.phrase.VerbPhrase;
+import ua.edu.ukma.ukrcoref.parsetree.factory.LeafNodeFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.NodeFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.PhraseNodeFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.SentenceFactory;
 
-public class JsonConverter implements ISentenceConverter {
+public class JsonConverter implements SentenceConverter {
 
     private JsonParser parser;
 
@@ -52,39 +46,26 @@ public class JsonConverter implements ISentenceConverter {
         return node;
     }
 
+//    TODO: Upgrade factory
     private ParseTreeNode createNewNode(String key, JsonElement value,
             ParseTreeNode parent) {
         ParseTreeNode node;
         switch (key) {
             case "S":
-                node = new Sentence();
-                break;
             case "REL":
-                node = new RelativeClause();
+                node = NodeFactory.createNode(new SentenceFactory(key));
                 break;
             case "NP":
-                node = new NounPhrase();
-                break;
             case "PP":
-                node = new PronounPhrase();
-                break;
             case "VP":
-                node = new VerbPhrase();
+                node = NodeFactory.createNode(new PhraseNodeFactory(key));
                 break;
             case "NN":
-                node = new NounNode();
-                break;
             case "PRP":
-                node = new PronounNode();
-                break;
             case "V":
-                node = new VerbNode();
-                break;
             case "IN":
-                node = new PrepositionNode();
-                break;
             case "NUM":
-                node = new NumeralNode();
+                node = NodeFactory.createNode(new LeafNodeFactory(key));
                 break;
             default:
                 node = null;

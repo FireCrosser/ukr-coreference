@@ -1,6 +1,6 @@
 package ua.edu.ukma.ukrcoref.parsetree.pos;
 
-public class Adverb implements IPartOfSpeech {
+public class Adverb implements PartOfSpeech {
 
     @Override
     public String getWord() {

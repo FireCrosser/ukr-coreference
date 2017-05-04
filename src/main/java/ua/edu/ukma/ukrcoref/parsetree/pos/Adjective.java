@@ -1,6 +1,6 @@
 package ua.edu.ukma.ukrcoref.parsetree.pos;
 
-public class Adjective implements IPartOfSpeech {
+public class Adjective implements PartOfSpeech {
 
     @Override
     public String getWord() {

@@ -1,7 +1,8 @@
 package ua.edu.ukma.ukrcoref.parsetree.phrase;
-import ua.edu.ukma.ukrcoref.parsetree.leaf.LeafNode;
-import ua.edu.ukma.ukrcoref.parsetree.pos.Pronoun;
 
-public class PronounPhrase extends Phrase<Pronoun> {
+import ua.edu.ukma.ukrcoref.Noun;
+import ua.edu.ukma.ukrcoref.parsetree.leaf.LeafNode;
+
+public class NounPhraseNode extends PhraseNode<Noun> {
 
 }

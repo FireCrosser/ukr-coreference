@@ -1,8 +1,8 @@
 package ua.edu.ukma.ukrcoref.parsetree.pos;
 
-import ua.edu.ukma.ukrcoref.parsetree.INode;
+import ua.edu.ukma.ukrcoref.parsetree.Node;
 
-public interface IPartOfSpeech {
+public interface PartOfSpeech {
 
     public String getWord();
 }

@@ -2,7 +2,7 @@ package ua.edu.ukma.ukrcoref.parsetree.pos;
 
 import ua.edu.ukma.ukrcoref.NounProperties;
 
-public class Noun implements IPartOfSpeech {
+public class Noun implements PartOfSpeech {
 
     @Override
     public String getWord() {

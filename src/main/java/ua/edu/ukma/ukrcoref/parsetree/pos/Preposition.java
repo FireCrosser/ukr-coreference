@@ -1,6 +1,6 @@
 package ua.edu.ukma.ukrcoref.parsetree.pos;
 
-public class Preposition implements IPartOfSpeech {
+public class Preposition implements PartOfSpeech {
 
     @Override
     public String getWord() {
