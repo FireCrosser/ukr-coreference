@@ -1,5 +1,38 @@
 package ua.edu.ukma.ukrcoref.parsetree;
 
-public class RelativeClause extends Sentence {
+import java.util.ArrayList;
+import java.util.List;
+
+public class RelativeClause implements ParseTreeNode {
+
+    private Node parent;
+    private List<Node> children;
+
+    @Override
+    public Node getParent() {
+        return parent;
+    }
+
+    @Override
+    public void setParent(Node node) {
+        this.parent = node;
+    }
+
+    @Override
+    public List<Node> getData() {
+        return null;
+    }
+
+    @Override
+    public List<Node> getChildren() {
+        return children;
+    }
+
+    @Override
+    public void addChild(Node child) {
+        if (children == null)
+            children = new ArrayList<>();
+        children.add(child);
+    }
 
 }

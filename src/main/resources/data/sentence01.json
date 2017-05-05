@@ -79,64 +79,68 @@
               }
             },
             {
-              "REL": {
-                "IN": {
-                  "word": "коли"
-                },
-                "S": [
-                  {
-                    "NP": [
-                      {
-                        "PRP": {
-                          "word": "він",
-                          "case": "nominative",
-                          "gender": "feminine"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "VP": [
-                      {
-                        "V":
-                                {
-                                  "word": "переніс",
-                                  "tense": "past"
-                                }
-                      },
-                      {
-                        "NP": [
-                          {
-                            "PRP": {
-                              "word": "її",
-                              "case": "accusative",
-                              "gender": "feminine"
-                            }
-                          }
-                        ]
-                      },
-                      {
-                        "PP": [
-                          {
-                            "IN": "до"
-                          },
-                          {
-                            "NP": [
-                              {
-                                "NN": {
-                                  "word": "Лондона",
-                                  "case": "genitive",
-                                  "gender": "masculine"
-                                }
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
+              "REL": [
+                {
+                  "IN": {
+                    "word": "коли"
                   }
-                ]
-              }
+                },
+                {
+                  "S": [
+                    {
+                      "NP": [
+                        {
+                          "PRP": {
+                            "word": "він",
+                            "case": "nominative",
+                            "gender": "feminine"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "VP": [
+                        {
+                          "V":
+                                  {
+                                    "word": "переніс",
+                                    "tense": "past"
+                                  }
+                        },
+                        {
+                          "NP": [
+                            {
+                              "PRP": {
+                                "word": "її",
+                                "case": "accusative",
+                                "gender": "feminine"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "PP": [
+                            {
+                              "IN": "до"
+                            },
+                            {
+                              "NP": [
+                                {
+                                  "NN": {
+                                    "word": "Лондона",
+                                    "case": "genitive",
+                                    "gender": "masculine"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }

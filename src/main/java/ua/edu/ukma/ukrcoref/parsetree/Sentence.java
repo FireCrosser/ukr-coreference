@@ -3,7 +3,7 @@ package ua.edu.ukma.ukrcoref.parsetree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Sentence implements ParseTreeNode<List<Node>> {
+public class Sentence implements ParseTreeNode {
 
     private Node parent;
     private List<Node> children;
@@ -19,7 +19,7 @@ public class Sentence implements ParseTreeNode<List<Node>> {
     }
 
     @Override
-    public List<Node> getData() {
+    public Object getData() {
         return null;
     }
 

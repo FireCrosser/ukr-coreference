@@ -10,6 +10,7 @@ import ua.edu.ukma.ukrcoref.parsetree.ParseTreeNode;
 import ua.edu.ukma.ukrcoref.parsetree.factory.LeafNodeFactory;
 import ua.edu.ukma.ukrcoref.parsetree.factory.NodeFactory;
 import ua.edu.ukma.ukrcoref.parsetree.factory.PhraseNodeFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.RelativeClauseFactory;
 import ua.edu.ukma.ukrcoref.parsetree.factory.SentenceFactory;
 
 public class JsonConverter implements SentenceConverter {
@@ -52,8 +53,10 @@ public class JsonConverter implements SentenceConverter {
         ParseTreeNode node;
         switch (key) {
             case "S":
+                node = NodeFactory.createNode(new SentenceFactory());
+                break;
             case "REL":
-                node = NodeFactory.createNode(new SentenceFactory(key));
+                node = NodeFactory.createNode(new RelativeClauseFactory());
                 break;
             case "NP":
             case "PP":
@@ -76,7 +79,7 @@ public class JsonConverter implements SentenceConverter {
                 node.setParent(parent);
                 parent.addChild(node);
             }
-            if (key.equals("S") || key.equals("NP") || key.equals("PP"))
+            if (key.equals("S") || key.equals("REL") || key.equals("NP") || key.equals("PP"))
                 parseJsonToNode(value, node);
         }
         return node;
