@@ -55,82 +55,82 @@
               }
             }
           ]
-        }
-      ]
-    },
-    {
-      "PP": [
-        {
-          "IN": "до"
         },
         {
-          "NP": [
+          "PP": [
             {
-              "NUM":
-                      {
-                        "word": "526"
-                      }
+              "IN": "до"
             },
             {
-              "NN": {
-                "word": "року",
-                "case": "genitive",
-                "gender": "masculine"
-              }
-            },
-            {
-              "REL": [
+              "NP": [
                 {
-                  "IN": {
-                    "word": "коли"
+                  "NUM":
+                          {
+                            "word": "526"
+                          }
+                },
+                {
+                  "NN": {
+                    "word": "року",
+                    "case": "genitive",
+                    "gender": "masculine"
                   }
                 },
                 {
-                  "S": [
+                  "REL": [
                     {
-                      "NP": [
-                        {
-                          "PRP": {
-                            "word": "він",
-                            "case": "nominative",
-                            "gender": "feminine"
-                          }
-                        }
-                      ]
+                      "IN": {
+                        "word": "коли"
+                      }
                     },
                     {
-                      "VP": [
-                        {
-                          "V":
-                                  {
-                                    "word": "переніс",
-                                    "tense": "past"
-                                  }
-                        },
+                      "S": [
                         {
                           "NP": [
                             {
                               "PRP": {
-                                "word": "її",
-                                "case": "accusative",
+                                "word": "він",
+                                "case": "nominative",
                                 "gender": "feminine"
                               }
                             }
                           ]
                         },
                         {
-                          "PP": [
+                          "VP": [
                             {
-                              "IN": "до"
+                              "V":
+                                      {
+                                        "word": "переніс",
+                                        "tense": "past"
+                                      }
                             },
                             {
                               "NP": [
                                 {
-                                  "NN": {
-                                    "word": "Лондона",
-                                    "case": "genitive",
-                                    "gender": "masculine"
+                                  "PRP": {
+                                    "word": "її",
+                                    "case": "accusative",
+                                    "gender": "feminine"
                                   }
+                                }
+                              ]
+                            },
+                            {
+                              "PP": [
+                                {
+                                  "IN": "до"
+                                },
+                                {
+                                  "NP": [
+                                    {
+                                      "NN": {
+                                        "word": "Лондона",
+                                        "case": "genitive",
+                                        "gender": "masculine"
+                                      }
+                                    }
+                                  ]
                                 }
                               ]
                             }

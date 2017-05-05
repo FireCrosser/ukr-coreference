@@ -2,7 +2,7 @@ package ua.edu.ukma.ukrcoref.parsetree.factory;
 
 import ua.edu.ukma.ukrcoref.parsetree.phrase.NounPhraseNode;
 import ua.edu.ukma.ukrcoref.parsetree.phrase.PhraseNode;
-import ua.edu.ukma.ukrcoref.parsetree.phrase.PronounPhraseNode;
+import ua.edu.ukma.ukrcoref.parsetree.phrase.PrepositionPhraseNode;
 import ua.edu.ukma.ukrcoref.parsetree.phrase.VerbPhraseNode;
 
 public class PhraseNodeFactory implements NodeAbstractFactory {
@@ -21,7 +21,7 @@ public class PhraseNodeFactory implements NodeAbstractFactory {
                 node = new NounPhraseNode();
                 break;
             case "PP":
-                node = new PronounPhraseNode();
+                node = new PrepositionPhraseNode();
                 break;
             case "VP":
                 node = new VerbPhraseNode();

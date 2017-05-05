@@ -79,7 +79,8 @@ public class JsonConverter implements SentenceConverter {
                 node.setParent(parent);
                 parent.addChild(node);
             }
-            if (key.equals("S") || key.equals("REL") || key.equals("NP") || key.equals("PP"))
+            if (key.equals("S") || key.equals("REL") || key.equals("NP") 
+                    || key.equals("PP") || key.equals("VP"))
                 parseJsonToNode(value, node);
         }
         return node;
