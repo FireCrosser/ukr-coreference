@@ -25,4 +25,5 @@ public abstract class LeafNode<T> implements ParseTreeNode<T> {
     @Override
     public void addChild(ParseTreeNode child) {
     }
+    
 }

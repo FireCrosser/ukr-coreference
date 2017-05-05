@@ -38,19 +38,21 @@ public class RelativeClause implements ParseTreeNode {
 
     @Override
     public void acceptDown(NodeVisitor v) {
-        if (this.getChildren() != null)
-            this.getChildren().stream().
-                    forEach((n) -> {
-                        n.acceptDown(v);
-                    });
-        v.visit(this);
+        boolean toContinue = v.visit(this);
+        if (toContinue == true)
+            if (this.getChildren() != null)
+                this.getChildren().stream().
+                        forEach((n) -> {
+                            n.acceptDown(v);
+                        });
     }
 
     @Override
     public void acceptUp(NodeVisitor v) {
-        v.visit(this);
-        if (this.getParent() != null)
-            this.getParent().acceptUp(v);
+        boolean toContinue = v.visit(this);
+        if (toContinue == true)
+            if (this.getParent() != null)
+                this.getParent().acceptUp(v);
     }
 
 }

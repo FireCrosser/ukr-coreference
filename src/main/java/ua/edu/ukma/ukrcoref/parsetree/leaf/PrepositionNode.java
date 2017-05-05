@@ -19,8 +19,9 @@ public class PrepositionNode extends LeafNode<Preposition> {
 
     @Override
     public void acceptUp(NodeVisitor v) {
-        v.visit(this);
-        if (this.getParent() != null)
-            this.getParent().acceptUp(v);
+        boolean toContinue = v.visit(this);
+        if (toContinue == true)
+            if (this.getParent() != null)
+                this.getParent().acceptUp(v);
     }
 }

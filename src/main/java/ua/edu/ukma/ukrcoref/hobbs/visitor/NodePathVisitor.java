@@ -1,5 +1,6 @@
 package ua.edu.ukma.ukrcoref.hobbs.visitor;
 
+import java.util.Deque;
 import java.util.Queue;
 import ua.edu.ukma.ukrcoref.parsetree.ParseTreeNode;
 import ua.edu.ukma.ukrcoref.parsetree.RelativeClause;
@@ -13,62 +14,72 @@ import ua.edu.ukma.ukrcoref.parsetree.phrase.NounPhraseNode;
 import ua.edu.ukma.ukrcoref.parsetree.phrase.PrepositionPhraseNode;
 import ua.edu.ukma.ukrcoref.parsetree.phrase.VerbPhraseNode;
 
-public class NodeUpVisitor implements NodeVisitor {
+public class NodePathVisitor implements NodeVisitor {
 
-    private final Queue<ParseTreeNode> path;
+    private final Deque<ParseTreeNode> path;
 
-    public NodeUpVisitor(Queue<ParseTreeNode> path) {
+    public NodePathVisitor(Deque<ParseTreeNode> path) {
         this.path = path;
     }
 
     @Override
-    public void visit(Sentence node) {
+    public boolean visit(Sentence node) {
         path.add(node);
+        return false;
     }
 
     @Override
-    public void visit(RelativeClause node) {
+    public boolean visit(RelativeClause node) {
         path.add(node);
+        return true;
     }
 
     @Override
-    public void visit(NounPhraseNode node) {
+    public boolean visit(NounPhraseNode node) {
         path.add(node);
+        return false;
     }
 
     @Override
-    public void visit(VerbPhraseNode node) {
+    public boolean visit(VerbPhraseNode node) {
         path.add(node);
+        return true;
     }
 
     @Override
-    public void visit(PrepositionPhraseNode node) {
+    public boolean visit(PrepositionPhraseNode node) {
         path.add(node);
+        return true;
     }
 
     @Override
-    public void visit(NounNode node) {
+    public boolean visit(NounNode node) {
         path.add(node);
+        return true;
     }
 
     @Override
-    public void visit(VerbNode node) {
+    public boolean visit(VerbNode node) {
         path.add(node);
+        return true;
     }
 
     @Override
-    public void visit(PronounNode node) {
+    public boolean visit(PronounNode node) {
         path.add(node);
+        return true;
     }
 
     @Override
-    public void visit(NumeralNode node) {
+    public boolean visit(NumeralNode node) {
         path.add(node);
+        return true;
     }
 
     @Override
-    public void visit(PrepositionNode node) {
+    public boolean visit(PrepositionNode node) {
         path.add(node);
+        return true;
     }
 
 }

@@ -13,14 +13,14 @@ import ua.edu.ukma.ukrcoref.parsetree.phrase.PrepositionPhraseNode;
 import ua.edu.ukma.ukrcoref.parsetree.phrase.VerbPhraseNode;
 
 public interface NodeVisitor {
-    void visit(Sentence node);
-    void visit(RelativeClause node);
-    void visit(NounPhraseNode node);
-    void visit(VerbPhraseNode node);
-    void visit(PrepositionPhraseNode node);
-    void visit(NounNode node);
-    void visit(VerbNode node);
-    void visit(PronounNode node);
-    void visit(NumeralNode node);
-    void visit(PrepositionNode node);
+    boolean visit(Sentence node);
+    boolean visit(RelativeClause node);
+    boolean visit(NounPhraseNode node);
+    boolean visit(VerbPhraseNode node);
+    boolean visit(PrepositionPhraseNode node);
+    boolean visit(NounNode node);
+    boolean visit(VerbNode node);
+    boolean visit(PronounNode node);
+    boolean visit(NumeralNode node);
+    boolean visit(PrepositionNode node);
 }

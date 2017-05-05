@@ -21,44 +21,54 @@ public class PronounVisitor implements NodeVisitor {
     }
 
     @Override
-    public void visit(Sentence node) {
+    public boolean visit(Sentence node) {
+        return true;
     }
 
     @Override
-    public void visit(RelativeClause node) {
+    public boolean visit(RelativeClause node) {
+        return true;
     }
 
     @Override
-    public void visit(NounPhraseNode node) {
+    public boolean visit(NounPhraseNode node) {
+        return true;
     }
 
     @Override
-    public void visit(VerbPhraseNode node) {
+    public boolean visit(VerbPhraseNode node) {
+        return true;
     }
 
     @Override
-    public void visit(PrepositionPhraseNode node) {
+    public boolean visit(PrepositionPhraseNode node) {
+        return true;
     }
 
     @Override
-    public void visit(NounNode node) {
+    public boolean visit(NounNode node) {
+        return false;
     }
 
     @Override
-    public void visit(VerbNode node) {
+    public boolean visit(VerbNode node) {
+        return false;
     }
 
     @Override
-    public void visit(PronounNode node) {
+    public boolean visit(PronounNode node) {
         pronouns.add(node);
+        return false;
     }
 
     @Override
-    public void visit(NumeralNode node) {
+    public boolean visit(NumeralNode node) {
+        return false;
     }
 
     @Override
-    public void visit(PrepositionNode node) {
+    public boolean visit(PrepositionNode node) {
+        return false;
     }
 
 }
