@@ -4,36 +4,35 @@ import java.util.ArrayList;
 import java.util.List;
 import ua.edu.ukma.ukrcoref.parsetree.ParseTreeNode;
 import ua.edu.ukma.ukrcoref.parsetree.leaf.LeafNode;
-import ua.edu.ukma.ukrcoref.parsetree.Node;
 
-public abstract class PhraseNode<PT> implements ParseTreeNode<List<Node>> {
+public abstract class PhraseNode<PT> implements ParseTreeNode<List<ParseTreeNode>> {
 
     private LeafNode<PT> head;
-    private Node parent;
-    private List<Node> children;
+    private ParseTreeNode parent;
+    private List<ParseTreeNode> children;
 
     @Override
-    public Node getParent() {
+    public ParseTreeNode getParent() {
         return parent;
     }
 
     @Override
-    public void setParent(Node node) {
+    public void setParent(ParseTreeNode node) {
         this.parent = node;
     }
 
     @Override
-    public List<Node> getChildren() {
+    public List<ParseTreeNode> getChildren() {
         return children;
     }
 
     @Override
-    public List<Node> getData() {
+    public List<ParseTreeNode> getData() {
         return null;
     }
 
     @Override
-    public void addChild(Node child) {
+    public void addChild(ParseTreeNode child) {
         if (children == null)
             children = new ArrayList<>();
         this.children.add(child);

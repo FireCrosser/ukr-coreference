@@ -1,9 +1,9 @@
 package ua.edu.ukma.ukrcoref.parsetree.phrase;
 
 import ua.edu.ukma.ukrcoref.hobbs.visitor.NodeVisitor;
-import ua.edu.ukma.ukrcoref.parsetree.pos.Verb;
+import ua.edu.ukma.ukrcoref.parsetree.pos.Preposition;
 
-public class VerbPhraseNode extends PhraseNode<Verb> {
+public class PrepositionPhraseNode extends PhraseNode<Preposition> {
 
     @Override
     public void acceptDown(NodeVisitor v) {

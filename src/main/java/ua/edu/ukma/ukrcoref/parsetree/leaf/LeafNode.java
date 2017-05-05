@@ -2,19 +2,18 @@ package ua.edu.ukma.ukrcoref.parsetree.leaf;
 
 import java.util.List;
 import ua.edu.ukma.ukrcoref.parsetree.ParseTreeNode;
-import ua.edu.ukma.ukrcoref.parsetree.Node;
 
 public abstract class LeafNode<T> implements ParseTreeNode<T> {
 
-    private Node parent;
+    private ParseTreeNode parent;
 
     @Override
-    public Node getParent() {
+    public ParseTreeNode getParent() {
         return parent;
     }
 
     @Override
-    public void setParent(Node node) {
+    public void setParent(ParseTreeNode node) {
         this.parent = node;
     }
 
@@ -24,6 +23,6 @@ public abstract class LeafNode<T> implements ParseTreeNode<T> {
     }
 
     @Override
-    public void addChild(Node child) {
+    public void addChild(ParseTreeNode child) {
     }
 }

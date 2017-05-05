@@ -1,5 +1,6 @@
 package ua.edu.ukma.ukrcoref.parsetree.leaf;
 
+import ua.edu.ukma.ukrcoref.hobbs.visitor.NodeVisitor;
 import ua.edu.ukma.ukrcoref.parsetree.pos.Noun;
 
 public class NounNode extends LeafNode<Noun> {
@@ -9,6 +10,18 @@ public class NounNode extends LeafNode<Noun> {
     @Override
     public Noun getData() {
         return noun;
+    }
+
+    @Override
+    public void acceptDown(NodeVisitor v) {
+        v.visit(this);
+    }
+
+    @Override
+    public void acceptUp(NodeVisitor v) {
+        v.visit(this);
+        if (this.getParent() != null)
+            this.getParent().acceptUp(v);
     }
 
 }
