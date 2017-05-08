@@ -2,14 +2,12 @@ package ua.edu.ukma.ukrcoref.parsetree.pos;
 
 import ua.edu.ukma.ukrcoref.NounProperties;
 
-public class Verb implements PartOfSpeech {
+public class Verb extends PartOfSpeech {
 
-    @Override
-    public String getWord() {
-        return word;
-    }
-
-    private String word;
     private NounProperties.Gender gender;
     private NounProperties.Number number;
+
+    public Verb(String word) {
+        super(word);
+    }
 }

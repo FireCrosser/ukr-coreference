@@ -1,7 +1,6 @@
 package ua.edu.ukma.ukrcoref.hobbs.visitor;
 
 import java.util.Deque;
-import java.util.Queue;
 import ua.edu.ukma.ukrcoref.parsetree.ParseTreeNode;
 import ua.edu.ukma.ukrcoref.parsetree.RelativeClause;
 import ua.edu.ukma.ukrcoref.parsetree.Sentence;

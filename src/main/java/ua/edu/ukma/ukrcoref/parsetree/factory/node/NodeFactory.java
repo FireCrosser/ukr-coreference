@@ -1,4 +1,4 @@
-package ua.edu.ukma.ukrcoref.parsetree.factory;
+package ua.edu.ukma.ukrcoref.parsetree.factory.node;
 
 import ua.edu.ukma.ukrcoref.parsetree.ParseTreeNode;
 

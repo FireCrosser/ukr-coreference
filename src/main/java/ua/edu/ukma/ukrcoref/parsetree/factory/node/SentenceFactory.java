@@ -1,8 +1,8 @@
-package ua.edu.ukma.ukrcoref.parsetree.factory;
+package ua.edu.ukma.ukrcoref.parsetree.factory.node;
 
 import ua.edu.ukma.ukrcoref.parsetree.Sentence;
 
-public class SentenceFactory implements NodeAbstractFactory {
+public class SentenceFactory implements NodeAbstractFactory<Sentence> {
 
     @Override
     public Sentence createNode() {

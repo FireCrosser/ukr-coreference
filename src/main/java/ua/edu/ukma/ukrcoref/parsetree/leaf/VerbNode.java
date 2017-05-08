@@ -1,11 +1,16 @@
 package ua.edu.ukma.ukrcoref.parsetree.leaf;
 
 import ua.edu.ukma.ukrcoref.hobbs.visitor.NodeVisitor;
+import ua.edu.ukma.ukrcoref.parsetree.pos.PartOfSpeech;
 import ua.edu.ukma.ukrcoref.parsetree.pos.Verb;
 
 public class VerbNode extends LeafNode<Verb> {
 
     private Verb verb;
+
+    public VerbNode(PartOfSpeech value) {
+        super(value);
+    }
 
     @Override
     public Verb getData() {

@@ -2,11 +2,17 @@ package ua.edu.ukma.ukrcoref.parsetree.leaf;
 
 import java.util.List;
 import ua.edu.ukma.ukrcoref.parsetree.ParseTreeNode;
+import ua.edu.ukma.ukrcoref.parsetree.pos.PartOfSpeech;
 
 public abstract class LeafNode<T> implements ParseTreeNode<T> {
 
-    private ParseTreeNode parent;
+    protected PartOfSpeech value;
+    protected ParseTreeNode parent;
 
+    public LeafNode(PartOfSpeech value) {
+        this.value = value;
+    }
+    
     @Override
     public ParseTreeNode getParent() {
         return parent;

@@ -7,11 +7,22 @@ import com.google.gson.JsonParser;
 import java.util.Map;
 import java.util.Set;
 import ua.edu.ukma.ukrcoref.parsetree.ParseTreeNode;
-import ua.edu.ukma.ukrcoref.parsetree.factory.LeafNodeFactory;
-import ua.edu.ukma.ukrcoref.parsetree.factory.NodeFactory;
-import ua.edu.ukma.ukrcoref.parsetree.factory.PhraseNodeFactory;
-import ua.edu.ukma.ukrcoref.parsetree.factory.RelativeClauseFactory;
-import ua.edu.ukma.ukrcoref.parsetree.factory.SentenceFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.node.leaf.LeafNodeFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.node.NodeFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.node.PhraseNodeFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.node.RelativeClauseFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.node.SentenceFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.node.leaf.NounNodeFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.node.leaf.NumeralNodeFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.node.leaf.PrepositionNodeFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.node.leaf.PronounNodeFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.node.leaf.VerbNodeFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.pos.json.NounFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.pos.json.NumeralFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.pos.json.PosJsonFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.pos.json.PrepositionFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.pos.json.PronounFactory;
+import ua.edu.ukma.ukrcoref.parsetree.factory.pos.json.VerbFactory;
 
 public class JsonConverter implements SentenceConverter {
 
@@ -64,22 +75,40 @@ public class JsonConverter implements SentenceConverter {
                 node = NodeFactory.createNode(new PhraseNodeFactory(key));
                 break;
             case "NN":
+                node = NodeFactory.createNode(new NounNodeFactory(
+                        PosJsonFactory.createNode(new NounFactory(value.
+                                getAsJsonObject()))));
+                break;
             case "PRP":
+                node = NodeFactory.createNode(new PronounNodeFactory(
+                        PosJsonFactory.createNode(new PronounFactory(value.
+                                getAsJsonObject()))));
+                break;
             case "V":
+                node = NodeFactory.createNode(new VerbNodeFactory(
+                        PosJsonFactory.createNode(new VerbFactory(value.
+                                getAsJsonObject()))));
+                break;
             case "IN":
+                node = NodeFactory.createNode(new PrepositionNodeFactory(
+                        PosJsonFactory.createNode(new PrepositionFactory(value.
+                                getAsJsonObject()))));
+                break;
             case "NUM":
-                node = NodeFactory.createNode(new LeafNodeFactory(key));
+                node = NodeFactory.createNode(new NumeralNodeFactory(
+                        PosJsonFactory.createNode(new NumeralFactory(value.
+                                getAsJsonObject()))));
                 break;
             default:
-                node = null;
-                break;
+                throw new IllegalArgumentException(
+                        "Can not create node with such code.");
         }
         if (node != null) {
             if (parent != null) {
                 node.setParent(parent);
                 parent.addChild(node);
             }
-            if (key.equals("S") || key.equals("REL") || key.equals("NP") 
+            if (key.equals("S") || key.equals("REL") || key.equals("NP")
                     || key.equals("PP") || key.equals("VP"))
                 parseJsonToNode(value, node);
         }
