@@ -2,6 +2,7 @@ package ua.edu.ukma.ukrcoref.hobbs;
 
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedDeque;
@@ -13,14 +14,39 @@ import ua.edu.ukma.ukrcoref.parsetree.leaf.PronounNode;
 import ua.edu.ukma.ukrcoref.parsetree.phrase.NounPhraseNode;
 
 public class Hobbs {
-
-    public List<NounNode> getAntecedents(PronounNode node) {
-        List<NounNode> antecedents = new ArrayList<>();
+    
+    public List<NounPhraseNode> getAntecedents(PronounNode node) {
+        List<NounPhraseNode> antecedents = new ArrayList<>();
         Deque<ParseTreeNode> path = new ConcurrentLinkedDeque<>();
-        node.acceptDown(new NodePathVisitor(path));
+        /*
+        Get parent noun phrase and build the path up 
+        to first noun phrase or sentence
+         */
+        NounPhraseNode npn = (NounPhraseNode) node.getParent();
+        if (npn != null) {
+            if (npn.getParent() != null)
+                npn.getParent().acceptUp(new NodePathVisitor(path));
+        }
+        /*
+        Get all children to the left of path and traverse them for noun phrases
+         */
+        ParseTreeNode pathHead = path.removeLast();
+        List<ParseTreeNode> leftNodes = new ArrayList<>();
+        if (!path.isEmpty()) {
+            ParseTreeNode pathHeadChildren = path.getLast();
+            Iterator<ParseTreeNode> iter = pathHead.getChildren().
+                    iterator();
+            while (iter.hasNext()) {
+                ParseTreeNode child = iter.next();
+                if (child == pathHeadChildren)
+                    break;
+                leftNodes.add(child);
+            }
+        }
+        antecedents.addAll(traverseBreadthFirstForAntecedents(leftNodes));
         return antecedents;
     }
-
+    
     public static List<ParseTreeNode> traverseBreadthFirst(ParseTreeNode root) {
         List<ParseTreeNode> result = new ArrayList<>();
         Queue<ParseTreeNode> queue = new ConcurrentLinkedQueue();
@@ -55,8 +81,11 @@ public class Hobbs {
                 });
         while (!queue.isEmpty()) {
             ParseTreeNode node = queue.remove();
-            if (node.getClass().equals(NounPhraseNode.class))
-                antecedents.add((NounPhraseNode) node);
+            if (node.getClass().equals(NounPhraseNode.class)) {
+                NounPhraseNode nounNode = (NounPhraseNode) node;
+                if (nounNode.getHead().equals(NounNode.class))
+                    antecedents.add((NounPhraseNode) node);
+            }
             List<ParseTreeNode> children = node.getChildren();
             if (children != null)
                 children.stream().
